@@ -138,7 +138,6 @@ void load_and_run(const char *filename, int argc, char **argv, char **envp)
 	// Contents of the ELF file are in the buffer: elf_contents[x] is the x-th byte of the ELF file.
 	void *elf_contents = map_elf(filename);
 	/**
-	 * TODO: ELF Header Validation
 	 * Validate ELF magic bytes - "Not a valid ELF file" + exit code 3 if invalid.
 	 * Validate ELF class is 64-bit (ELFCLASS64) - "Not a 64-bit ELF" + exit code 4 if invalid.
 	 */
@@ -161,7 +160,6 @@ void load_and_run(const char *filename, int argc, char **argv, char **envp)
 
 	int i;
 	/**
-	 * TODO: Load Memory Regions with Correct Permissions
 	 * For each PT_LOAD segment:
 	 *	- Set memory permissions according to program header p_flags (PF_R, PF_W, PF_X).
 	 *	- Use mprotect() or map with the correct permissions directly using mmap().
